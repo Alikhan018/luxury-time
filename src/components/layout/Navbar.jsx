@@ -6,6 +6,7 @@ import { useCart } from '../../context/CartContext';
 import { getUserProfile } from '../../firebase/firestore';
 import toast from 'react-hot-toast';
 import Button from '../common/Button';
+import { logout } from '../../firebase/auth';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,7 +42,7 @@ const Navbar = () => {
     try {
       await logout();
       toast.success('Logged out successfully');
-      navigate('/');
+      navigate('/auth');
     } catch (error) {
       toast.error('Failed to logout');
     }

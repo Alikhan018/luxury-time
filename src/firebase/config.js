@@ -3,13 +3,14 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
+
 const firebaseConfig = {
- apiKey: "AIzaSyCfIQIerkaIW1qJ-C1eHfT51q-iO1bnZ-8",
-  authDomain: "luxury-watches-demo.firebaseapp.com",
-  projectId: "luxury-watches-demo",
-  storageBucket: "luxury-watches-demo.firebasestorage.app",
-  messagingSenderId: "956758711965",
-  appId: "1:956758711965:web:16b6f46a9eec7e76e2be74"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);

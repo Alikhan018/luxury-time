@@ -11,9 +11,6 @@ import emailjs from '@emailjs/browser';
 import Button from '../components/common/Button';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 
-// Hardcoded EmailJS public key (move to .env in production)
-const EMAILJS_PUBLIC_KEY = '1OmgSPeuXFuf2tHEh';
-
 const Checkout = () => {
     const navigate = useNavigate();
     const { user, loading: authLoading } = useAuth();
@@ -76,40 +73,6 @@ const Checkout = () => {
 
             // Save order to Firestore
             const orderId = await createOrder(orderData);
-
-            // Send order confirmation email via EmailJS
-            // try {
-            //     const emailParams = {
-            //         to_email: user.email || 'default@luxurytime.com',
-            //         user_name: userProfile?.displayName || user.email?.split('@')[0] || 'Customer',
-            //         order_id: orderId || 'N/A',
-            //         items: orderData.items.map((item) => ({
-            //             name: item.name || 'Unknown Product',
-            //             quantity: item.quantity || 1,
-            //             price: item.price.toFixed(2),
-            //         })) || [{ name: 'No items', quantity: 0, price: '0.00' }],
-            //         total: (total || 0).toFixed(2),
-            //         admin_email: '70131759@student.uol.edu.pk',
-            //     };
-
-            //     console.log('EmailJS params:', JSON.stringify(emailParams, null, 2)); // Detailed log
-
-            //     // Initialize EmailJS
-            //     emailjs.init(EMAILJS_PUBLIC_KEY);
-
-            //     const response = await emailjs.send(
-            //         'service_3aqj1g7',
-            //         'template_wsokgql',
-            //         emailParams
-            //     );
-
-            // console.log('EmailJS response:', JSON.stringify(response, null, 2));
-            // toast.success('Confirmation email sent!');
-            // } catch (emailError) {
-            //     console.error('EmailJS raw error:', emailError);
-            //     console.error('EmailJS error details:', JSON.stringify(emailError, null, 2));
-            //     toast.error(`Order placed, but failed to send confirmation email: ${emailError.text || emailError.message || 'Unknown error'} `);
-            // }
 
             toast.success(`Order #${orderId} placed successfully!`);
             clearCart();
