@@ -1,4 +1,6 @@
-#Luxury Time 🕰️
+Luxury Time 🕰️
+
+
 Luxury Time is a premium e-commerce platform for luxury watches, delivering an elegant and seamless shopping experience. Built with Vite, Next.js, TypeScript, and Firebase, it combines a modern frontend with a scalable serverless backend.
 
 🌟 Features
